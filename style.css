@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont;
+    background: #d1d7db;
+}
+
+/* WRAPPER */
+.wrapper {
+    max-width: 500px;
+    margin: auto;
+    min-height: 100vh;
+    background: #f0f2f5;
+}
+
+/* HEADER */
+.header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+}
+
+/* CONTENT */
+.page {
+    padding: 20px;
+    padding-bottom: 90px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: #25d366;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* NAV */
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+}
