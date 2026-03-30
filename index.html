@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Acthur</title>
+
+<style>
+:root{
+--bg:#020617;
+--card:#0f172a;
+--text:#e5e7eb;
+--sub:#94a3b8;
+}
+
+body{
+margin:0;
+font-family:-apple-system,sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+/* LOADER */
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:#020617;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+font-size:14px;
+opacity:.6;
+}
+
+/* PAGE */
+.page{
+position:absolute;
+width:100%;
+transition:.5s;
+}
+.hidden{
+opacity:0;
+transform:translateY(30px);
+pointer-events:none;
+}
+
+/* CONTAINER */
+.container{
+max-width:560px;
+margin:auto;
+padding:30px 20px 80px;
+}
+
+/* CARD */
+.card{
+background:var(--card);
+border-radius:16px;
+padding:22px;
+margin-bottom:20px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+/* TEXT */
+.title{
+font-size:24px;
+font-weight:600;
+text-align:center;
+margin-bottom:6px;
+}
+.subtitle{
+font-size:13px;
+color:var(--sub);
+text-align:center;
+margin-bottom:12px;
+}
+.text{
+font-size:15px;
+line-height:1.7;
+margin-bottom:10px;
+}
+
+/* FOTO PREMIUM */
+.photo{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+position:relative;
+}
+.photo::before{
+content:'';
+position:absolute;
+width:130px;
+height:130px;
+border-radius:50%;
+background: radial-gradient(circle, rgba(148,163,184,0.3), transparent 70%);
+filter: blur(25px);
+z-index:0;
+}
+.photo img{
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
+position:relative;
+z-index:1;
+border:2px solid rgba(255,255,255,0.15);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+padding:10px 14px;
+border-radius:10px;
+border:1px solid #334155;
+color:var(--text);
+text-decoration:none;
+font-size:13px;
+}
+
+/* INPUT */
+input{
+width:100%;
+padding:10px;
+border-radius:10px;
+border:1px solid #334155;
+background:transparent;
+color:white;
+}
+
+/* QUOTE */
+.quote{
+position:fixed;
+right:0;
+top:35%;
+width:240px;
+padding:14px;
+background:rgba(255,255,255,0.04);
+border-radius:12px;
+transform:translateX(120%);
+opacity:0;
+transition:.8s;
+font-size:13px;
+}
+.quote.show{
+transform:translateX(-20px);
+opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">Loading...</div>
+
+<!-- HOME -->
+<div class="page" id="home">
+<div class="container">
+
+<div class="card">
+<div class="title">Becoming, not proving.</div>
+<div class="subtitle">Quiet growth is still growth</div>
+
+<div class="text">Tidak semua progres terlihat, tapi tetap terjadi.</div>
+<div class="text">Konsistensi kecil lebih kuat dari motivasi besar.</div>
+<div class="text">Pelan tidak apa-apa, yang penting tidak berhenti.</div>
+<div class="text">Fokus pada yang bisa kamu kontrol.</div>
+</div>
+
+<button class="btn" onclick="openCV()">View Professional Profile</button>
+
+</div>
+</div>
+
+<!-- CV -->
+<div class="page hidden" id="cv">
+<div class="container">
+
+<div class="card">
+
+<div class="photo">
+<img src="foto.jpg" alt="Foto Profil">
+</div>
+
+<div class="title">Al Acthur Indra Wangsa Lapene</div>
+<div class="subtitle">Production Supervisor • Frozen Seafood Industry</div>
+<div class="subtitle">Indonesia • Open for Opportunity</div>
+
+<div style="text-align:center; margin-bottom:15px;">
+<a href="https://www.linkedin.com/in/al-acthur-b29961189" target="_blank" class="btn">
+LinkedIn Profile →
+</a>
+</div>
+
+<div class="text">
+Production Supervisor dengan pengalaman memimpin 200+ karyawan,
+berfokus pada efisiensi produksi dan pengendalian kualitas berbasis HACCP.
+</div>
+
+</div>
+
+<div class="card">
+<b>Experience</b><br><br>
+<div class="text">
+<b>Supervisor Produksi</b><br>
+• Memimpin 200+ karyawan<br>
+• Waste 4% → 1%<br>
+• Produksi 1.2 → 3 ton/hari
+</div>
+</div>
+
+<div class="card">
+<b>Protected Documents</b><br><br>
+<input type="password" id="pass" placeholder="Access Documents">
+<br><br>
+<button class="btn" onclick="unlock()">Unlock</button>
+
+<div id="docs" style="display:none;">
+<a href="CV.pdf">📄 Full CV</a><br><br>
+<a href="sertifikat.pdf">📜 Sertifikat</a>
+</div>
+</div>
+
+<button class="btn" onclick="back()">← Back</button>
+
+</div>
+</div>
+
+<div id="quote" class="quote"></div>
+
+<script>
+setTimeout(()=>loader.style.display="none",1200);
+
+function openCV(){
+home.classList.add("hidden");
+cv.classList.remove("hidden");
+}
+function back(){
+home.classList.remove("hidden");
+cv.classList.add("hidden");
+}
+function unlock(){
+if(pass.value==="TPH52AUPstp"){
+docs.style.display="block";
+}
+}
+
+/* QUOTES SUPER BANYAK */
+const quotes = [
+"Pelan tidak apa-apa, yang penting tidak berhenti.",
+"Konsistensi kecil lebih kuat dari motivasi besar.",
+"Tidak semua progres terlihat, tapi tetap terjadi.",
+"Fokus pada yang bisa kamu kontrol.",
+"Yang kamu bangun diam-diam akan berbicara nanti.",
+"Disiplin mengalahkan motivasi.",
+"Tidak semua hal perlu dipercepat.",
+"Kamu tidak harus membuktikan apa-apa.",
+"Proses kecil hari ini menentukan masa depanmu.",
+"Tenang, kamu sedang bertumbuh.",
+"Kamu tidak terlambat.",
+"Diam bukan berarti berhenti.",
+"Hasil besar lahir dari kebiasaan kecil.",
+"Lebih baik pelan tapi konsisten.",
+"Kerja diam-diam, hasil berbicara.",
+"Perubahan butuh waktu.",
+"Jangan bandingkan dirimu.",
+"Setiap hari kesempatan baru.",
+"Yang penting lanjut.",
+"Kamu lebih kuat dari yang kamu kira.",
+"Kecil hari ini, besar nanti.",
+"Mulai saja dulu.",
+"Kesabaran adalah strategi.",
+"Kamu sedang membangun sesuatu.",
+"Prosesmu valid.",
+"Jangan menyerah.",
+"Semua ada waktunya.",
+"Fokus, konsisten, berkembang.",
+"Bergerak lebih penting.",
+"Pelan tapi pasti."
+];
+
+/* RANDOM SYSTEM */
+function showQuote(){
+let q=document.getElementById("quote");
+q.innerText=quotes[Math.floor(Math.random()*quotes.length)];
+q.classList.add("show");
+setTimeout(()=>q.classList.remove("show"),5000);
+}
+
+function randomQuote(){
+showQuote();
+let delay = Math.random()*5000+6000;
+setTimeout(randomQuote, delay);
+}
+
+randomQuote();
+</script>
+
+</body>
+</html>
