@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Acthur</title>
+
+<style>
+:root{
+--bg:#020617;
+--card:#0f172a;
+--text:#e5e7eb;
+--sub:#94a3b8;
+}
+
+body{
+margin:0;
+font-family:-apple-system,sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+/* INTRO */
+#intro{
+position:fixed;
+width:100%;
+height:100%;
+background:#020617;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:1000;
+animation:fadeOut 1s ease forwards;
+animation-delay:3s;
+}
+.intro-title{font-size:28px;font-weight:600;}
+.intro-sub{font-size:14px;color:#94a3b8;margin-top:8px;}
+
+/* LAYOUT */
+.page{position:absolute;width:100%;transition:.5s;}
+.hidden{opacity:0;transform:translateY(30px);pointer-events:none;}
+
+.container{
+max-width:650px;
+margin:auto;
+padding:30px 20px 80px;
+}
+
+.card{
+background:#0f172a;
+border-radius:16px;
+padding:22px;
+margin-bottom:20px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.title{
+font-size:24px;
+font-weight:600;
+text-align:center;
+}
+.subtitle{
+font-size:13px;
+color:#94a3b8;
+text-align:center;
+margin-bottom:10px;
+}
+.text{
+font-size:15px;
+line-height:1.8;
+margin-bottom:10px;
+}
+
+/* FOTO */
+.photo{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+}
+.photo img{
+width:110px;
+height:110px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid rgba(255,255,255,0.2);
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+padding:10px 14px;
+border-radius:10px;
+border:1px solid #334155;
+color:white;
+text-decoration:none;
+font-size:13px;
+}
+
+/* QUOTES */
+.quote{
+position:fixed;
+right:0;
+top:30%;
+width:260px;
+padding:14px;
+background:rgba(255,255,255,0.05);
+border-radius:12px;
+transform:translateX(120%);
+opacity:0;
+transition:.8s;
+font-size:13px;
+}
+.quote.show{
+transform:translateX(-20px);
+opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<div>
+<div class="intro-title">Al Acthur</div>
+<div class="intro-sub">Consistency builds everything</div>
+</div>
+</div>
+
+<!-- HOME -->
+<div class="page" id="home">
+<div class="container">
+
+<div class="card">
+<div class="title">Becoming, not proving.</div>
+<div class="subtitle">Quiet growth is still growth</div>
+
+<div class="text">Tidak semua progres terlihat, tapi tetap terjadi.</div>
+<div class="text">Konsistensi kecil lebih kuat dari motivasi besar.</div>
+<div class="text">Pelan tidak apa-apa, yang penting tidak berhenti.</div>
+<div class="text">Fokus pada yang bisa kamu kontrol.</div>
+</div>
+
+<button class="btn" onclick="openCV()">Lihat CV Profesional</button>
+
+</div>
+</div>
+
+<!-- CV FULL -->
+<div class="page hidden" id="cv">
+<div class="container">
+
+<div class="card">
+<div class="photo">
+<img src="foto.jpg">
+</div>
+
+<div class="title">Al Acthur Indra Wangsa Lapene</div>
+<div class="subtitle">Production Supervisor • Frozen Seafood Industry</div>
+<div class="subtitle">Indonesia • Open for Opportunity</div>
+
+<div style="text-align:center;margin:10px;">
+<a href="https://www.linkedin.com/in/al-acthur-b29961189" target="_blank" class="btn">LinkedIn</a>
+</div>
+
+<div class="text">
+Lulusan Politeknik Ahli Usaha Perikanan Jakarta jurusan Pengolahan Hasil Perikanan dengan sertifikasi HACCP dan SPI. 
+Memiliki pengalaman sebagai Supervisor Produksi di industri frozen seafood dengan kemampuan memimpin tim hingga 200+ karyawan.
+
+Berpengalaman dalam meningkatkan efisiensi produksi, menurunkan waste dari 4% menjadi 1%, serta meningkatkan kapasitas produksi dari 1,2 ton menjadi 3 ton per hari.
+
+Memiliki pemahaman yang kuat terkait standar keamanan pangan (GMP, SSOP, HACCP) serta manajemen proses produksi.
+</div>
+</div>
+
+<div class="card">
+<b>Professional Experience</b><br><br>
+
+<div class="text">
+<b>Supervisor Produksi</b><br>
+PT First Marine Seafood | 2022–2026<br>
+• Memimpin dan mengawasi tim produksi ±200 karyawan<br>
+• Menjamin kualitas produk sesuai standar GMP, SSOP, dan HACCP<br>
+• Mengelola proses produksi dari tahap soaking hingga packing<br>
+• Menurunkan waste dari 4% menjadi 1%<br>
+• Meningkatkan kapasitas produksi dari 1,2 ton menjadi 3 ton/hari<br>
+• Menjaga yield produksi sesuai target<br>
+• Koordinasi lintas departemen
+</div>
+
+<br>
+
+<div class="text">
+<b>Foreman Produksi</b><br>
+PT First Marine Seafood | 2021<br>
+• Mendukung operasional produksi harian<br>
+• Mengawasi kinerja tim<br>
+• Menjaga efisiensi proses<br>
+• Menangani kendala lapangan
+</div>
+
+<br>
+
+<div class="text">
+<b>Staff Purchasing</b><br>
+PT Trimina Synergi Selaras | 2020<br>
+• Mengelola pembelian bahan baku ikan pelagis<br>
+• Target pembelian hingga 1 ton/hari<br>
+• Menjaga kualitas & supplier
+</div>
+
+</div>
+
+<div class="card">
+<b>Skills</b>
+<div class="text">
+Manajemen Produksi • Leadership • HACCP • GMP • SSOP • QC/QA • Efisiensi Proses • Inventory • Problem Solving
+</div>
+</div>
+
+<div class="card">
+<b>Certifications</b>
+<div class="text">
+HACCP • SPI
+</div>
+</div>
+
+<div class="card">
+<b>Achievements</b>
+<div class="text">
+• Waste turun 75%<br>
+• Produksi naik 2.5x<br>
+• Memimpin 200+ karyawan
+</div>
+</div>
+
+<button class="btn" onclick="back()">← Kembali</button>
+
+</div>
+</div>
+
+<div id="quote" class="quote"></div>
+
+<script>
+setTimeout(()=>intro.style.display="none",3000);
+
+function openCV(){
+home.classList.add("hidden");
+cv.classList.remove("hidden");
+}
+function back(){
+home.classList.remove("hidden");
+cv.classList.add("hidden");
+}
+
+/* 100+ QUOTES */
+const quotes=[
+"Pelan tidak apa-apa, yang penting tidak berhenti.",
+"Konsistensi kecil lebih kuat dari motivasi besar.",
+"Tidak semua progres terlihat, tapi tetap terjadi.",
+"Fokus pada yang bisa kamu kontrol.",
+"Yang kamu bangun diam-diam akan berbicara nanti.",
+"Disiplin mengalahkan motivasi.",
+"Perubahan butuh waktu.",
+"Jangan bandingkan dirimu.",
+"Kamu lebih kuat dari yang kamu kira.",
+"Mulai saja dulu.",
+"Kesabaran adalah strategi.",
+"Kamu sedang berkembang.",
+"Jangan menyerah.",
+"Semua ada waktunya.",
+"Fokus, konsisten, berkembang.",
+"Bergerak lebih penting dari sempurna.",
+"Pelan tapi pasti.",
+"Jangan tunggu mood.",
+"Kamu bisa lebih.",
+"Lanjutkan meski pelan.",
+"Proses lebih penting.",
+"Kamu tidak terlambat.",
+"Terus jalan.",
+"Percaya prosesmu.",
+"Kamu naik level.",
+"Jangan berhenti sekarang.",
+"Semua ada hasilnya.",
+"Kamu mampu.",
+"Kamu layak berhasil.",
+"Teruskan.",
+"Jangan berhenti di sini.",
+"Sedikit lagi.",
+"Fokus tujuan.",
+"Terus maju.",
+"Jangan mundur.",
+"Kamu berkembang.",
+"Percaya diri.",
+"Bangun dirimu.",
+"Terus belajar.",
+"Progres kecil berarti.",
+"Jangan overthinking.",
+"Mulai bergerak.",
+"Disiplin itu kunci.",
+"Jangan cepat puas.",
+"Terus upgrade diri.",
+"Jangan takut gagal.",
+"Gagal itu proses.",
+"Kamu akan sampai.",
+"Kerja diam-diam.",
+"Hasil akan bicara."
+];
+
+/* RANDOM */
+function showQuote(){
+let q=document.getElementById("quote");
+q.innerText=quotes[Math.floor(Math.random()*quotes.length)];
+q.classList.add("show");
+setTimeout(()=>q.classList.remove("show"),5000);
+}
+function loopQuote(){
+showQuote();
+setTimeout(loopQuote,Math.random()*5000+6000);
+}
+loopQuote();
+</script>
+
+</body>
+</html>
