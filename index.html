@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Acthur App</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system;
+    background: #d1d7db;
+}
+
+/* WRAPPER */
+.wrapper {
+    max-width: 500px;
+    margin: auto;
+    min-height: 100vh;
+    background: #f0f2f5;
+}
+
+/* HEADER */
+.header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+}
+
+/* PAGE */
+.page {
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    background: #25d366;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 240px;
+    height: 100%;
+    background: white;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* SIDEBAR HEADER */
+.sidebar-header {
+    background: #075e54;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar-header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    background: #25d366;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* MENU */
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
+}
+
+/* MENU BTN */
+.menu-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #075e54;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 1100;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* FLOAT WA */
+.wa-float {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* AUTO CHAT */
+.auto-chat {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 200px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* PASSWORD BOX */
+#cvBox {
+    display: none;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<img src="foto.jpg">
+<h3>Al Acthur <span class="status"></span></h3>
+<p>Online</p>
+</div>
+
+<a href="#" onclick="showPage('home')">🏠 Home</a>
+<a href="#" onclick="showPage('produk')">📦 Produk</a>
+<a href="#" onclick="showPage('jasa')">🌐 Jasa</a>
+<a href="#" onclick="showPage('tentang')">👤 Tentang</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<div class="wrapper">
+
+<div class="header">Al Acthur App</div>
+
+<div class="page" id="content">
+
+<!-- HOME -->
+<div id="home">
+<h2>🔥 Jangan Berhenti</h2>
+<div class="card">
+Mulai sekarang, bukan nanti.<br>
+<b>Skill = Masa Depan</b>
+</div>
+</div>
+
+<!-- PRODUK -->
+<div id="produk" style="display:none;">
+<div class="card">
+<b>Ebook Jualan Online</b>
+<p>Dari nol sampai closing</p>
+<a href="https://wa.me/6285213494661?text=Saya mau beli ebook" class="btn">Beli</a>
+</div>
+</div>
+
+<!-- JASA -->
+<div id="jasa" style="display:none;">
+<div class="card">
+<b>Website UMKM</b>
+<p>🔥 Mulai 100rb</p>
+<p id="timer"></p>
+<a href="https://wa.me/6285213494661?text=Saya mau buat website" class="btn">Order</a>
+</div>
+</div>
+
+<!-- TENTANG -->
+<div id="tentang" style="display:none;">
+<div class="card">
+<b>Al Acthur</b>
+<p>Digital Creator</p>
+
+<input type="password" id="pass" placeholder="Masukkan Password">
+<br><br>
+<button onclick="cekCV()">Buka CV</button>
+
+<div id="cvBox">
+<a href="CV.pdf" class="btn">Download CV</a>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/6285213494661" class="wa-float">💬</a>
+
+<!-- AUTO CHAT -->
+<div id="autoChat" class="auto-chat">
+🔥 Promo Website 100rb  
+<a href="https://wa.me/6285213494661" class="btn">Ambil</a>
+</div>
+
+<script>
+function toggleMenu() {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+
+function showPage(page) {
+    document.querySelectorAll("#content > div").forEach(el => el.style.display="none");
+    document.getElementById(page).style.display = "block";
+    toggleMenu();
+}
+
+/* AUTO CHAT */
+setTimeout(()=>{
+    autoChat.style.display="block";
+},3000);
+
+/* COUNTDOWN */
+let time=300;
+setInterval(()=>{
+    let m=Math.floor(time/60);
+    let s=time%60;
+    timer.innerHTML="Promo: "+m+"m "+s+"s";
+    time--;
+},1000);
+
+/* PASSWORD CV */
+function cekCV(){
+    let pass = document.getElementById("pass").value;
+    if(pass === "TPH52AUPstp"){
+        document.getElementById("cvBox").style.display="block";
+    } else {
+        alert("Password salah!");
+    }
+}
+</script>
+
+</body>
+</html>
